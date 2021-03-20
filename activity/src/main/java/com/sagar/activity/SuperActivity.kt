@@ -6,6 +6,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.net.Uri
+import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
@@ -31,6 +32,13 @@ abstract class SuperActivity :
     AppCompatActivity(),
     ShowMessageCallback,
     ShowProgressCallback {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        onCreateCalled(savedInstanceState)
+    }
+
+    abstract fun onCreateCalled(savedInstanceState: Bundle?)
 
     inline fun <reified T> fromJson(json: String): T {
         return Gson().fromJson(json, object : TypeToken<T>() {}.type)
