@@ -1,0 +1,3 @@
+include ':activity'
+include ':app'
+rootProject.name = "SuperActivity"

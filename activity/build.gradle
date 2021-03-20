@@ -1,0 +1,99 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'maven-publish'
+}
+
+def githubProperties = new Properties()
+githubProperties.load(new FileInputStream(rootProject.file("github.properties")))
+
+def getVersionName = { ->
+    return "0.0.1"
+}
+
+def getArtificatId = { ->
+    return "activity"
+}
+
+publishing {
+    publications {
+        bar(MavenPublication) {
+            groupId 'com.sagar'
+            artifactId getArtificatId()
+            version getVersionName()
+            artifact("$buildDir/outputs/aar/${getArtificatId()}-release.aar")
+        }
+    }
+
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/sagarnayak/SuperActivity")
+            credentials {
+                username = githubProperties['gpr.usr'] ?: System.getenv("GPR_USER")
+                password = githubProperties['gpr.key'] ?: System.getenv("GPR_API_KEY")
+            }
+        }
+    }
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.3.0'
+
+    //dialog utils
+    implementation 'com.sagar:dialog:0.0.1'
+
+    //common models and enums
+    implementation 'com.sagar:modelsandenums:0.0.5'
+
+    //common utils
+    implementation 'com.sagar:utils:0.0.2'
+
+    //progress utils
+    implementation 'com.sagar:progress:0.0.1'
+
+    //gson
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.6'
+
+    //chrome custom tabs
+    implementation 'androidx.browser:browser:1.3.0'
+
+    //testing
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}
