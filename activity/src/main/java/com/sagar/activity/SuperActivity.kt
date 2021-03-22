@@ -34,8 +34,8 @@ abstract class SuperActivity :
     ShowProgressCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         onCreateCalled(savedInstanceState)
+        super.onCreate(savedInstanceState)
     }
 
     abstract fun onCreateCalled(savedInstanceState: Bundle?)
