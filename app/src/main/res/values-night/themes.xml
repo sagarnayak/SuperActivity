@@ -12,24 +12,5 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-        <item name="dialogPrimaryTextColor">?attr/dialogPrimaryTextColor</item>
-        <item name="dialogButtonTextColor">?attr/dialogButtonTextColor</item>
-        <item name="dialogDefaultBackground">?attr/dialogDefaultBackground</item>
-        <item name="dialogButtonBackgroundColor">?attr/dialogButtonBackgroundColor</item>
-
-        <item name="dialogTextFont">?attr/dialogTextFont</item>
-        <item name="dialogButtonFont">?attr/dialogButtonFont</item>
-
-        <item name="dialogTextSize">?attr/dialogTextSize</item>
-        <item name="dialogButtonSize">?attr/dialogButtonSize</item>
-        <item name="dialogCornerRadius">?attr/dialogCornerRadius</item>
-        <item name="dialogButtonHeight">?attr/dialogButtonHeight</item>
-
-        <item name="dialogFailedDefaultString">?attr/dialogFailedDefaultString</item>
-        <item name="dialogUploadingDefaultString">?attr/dialogUploadingDefaultString</item>
-        <item name="dialogSuccessDefaultString">?attr/dialogSuccessDefaultString</item>
-        <item name="dialogDefaultCancelText">?attr/dialogDefaultCancelText</item>
-        <item name="dialogDefaultOKText">?attr/dialogDefaultOKText</item>
-        <item name="dialogDefaultProcessingText">?attr/dialogDefaultProcessingText</item>
     </style>
 </resources>
