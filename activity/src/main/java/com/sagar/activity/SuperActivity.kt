@@ -57,8 +57,11 @@ abstract class SuperActivity :
     private val dialogUtil: DialogUtil =
         DialogUtil(this)
 
-    private val progressUtil: ProgressUtil =
-        ProgressUtil(this)
+    private lateinit var progressUtil: ProgressUtil
+
+    protected fun setUpProgressUtil(color: Int) {
+        progressUtil = ProgressUtil(this, color)
+    }
 
     fun isConnectedToNetwork() = NetworkUtil.isConnected(this)
 
