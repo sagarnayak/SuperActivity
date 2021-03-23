@@ -9,7 +9,7 @@ def githubProperties = new Properties()
 githubProperties.load(new FileInputStream(rootProject.file("github.properties")))
 
 def getVersionName = { ->
-    return "0.0.3"
+    return "0.0.4"
 }
 
 def getArtificatId = { ->
@@ -78,10 +78,10 @@ dependencies {
     implementation 'com.sagar:dialog:0.0.1'
 
     //common models and enums
-    implementation 'com.sagar:modelsandenums:0.0.5'
+    implementation 'com.sagar:modelsandenums:0.0.7'
 
     //common utils
-    implementation 'com.sagar:utils:0.0.2'
+    implementation 'com.sagar:utils:0.0.5'
 
     //progress utils
     implementation 'com.sagar:progress:0.0.1'
